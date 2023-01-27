@@ -1,0 +1,29 @@
+<!DOCTYPE-html>
+<html>
+	<body>
+		<form name="form">
+
+			<input name="file" type="file" /><br/>
+			<textarea name="text"></textarea>
+
+		</form>
+
+		<script>
+
+let form = document.forms.form;
+
+form.file.addEventListener('change', function(e) {
+	var result = e.target.files[0];
+
+	var reader = new FileReader();
+
+	reader.readAsText( result );
+
+	reader.addEventListener('load', function() {
+		form.text.textContent = reader.result;
+	});
+});
+
+		</script>	
+	</body>
+</html>
